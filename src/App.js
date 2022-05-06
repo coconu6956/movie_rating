@@ -1,6 +1,10 @@
-
-function Food({fav}){
-  return <h1>I like {fav}~!</h1>;
+function Food({name, picture}){
+  return (
+    <div>
+      <h2>I love {name}</h2>
+      <img src={picture} width="100%" />
+    </div>
+  );
 }
 
 const foodILike = [
@@ -13,7 +17,7 @@ const foodILike = [
   },
   {
     name: 'mimi',
-    image: 'https://cdn.ppomppu.co.kr/zboard/data3/2020/0903/m_20200903191650_ufifubah.jpg'
+    image: 'https://opgg-com-image.akamaized.net/attach/images/20201208105047.1270210.jpg'
   },
   {
     name: 'chichi',
@@ -28,7 +32,9 @@ const foodILike = [
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      { foodILike.map((dish, index) => (
+        <Food name={'cat ' + (index+1)} picture={dish.image} />
+        )) }
     </div>
   );
 }
